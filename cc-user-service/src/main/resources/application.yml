@@ -1,0 +1,33 @@
+spring:
+  application:
+    name: cc-user-service
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+      config:
+        server-addr: localhost:8848
+        file-extension: yml
+  datasource:
+    url: jdbc:mysql://localhost:3306/ccuser?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=Asia/Shanghai
+    username: root
+    password: root
+  redis:
+    host: localhost
+    port: 6379
+
+server:
+  port: 8081
+
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: com.cc.user.model
+
+logging:
+  level:
+    com.cc.user: debug
+
+jwt:
+  secret: cc-trading-platform-secret-key-2024
+  expiration: 86400000
+  refresh-expiration: 604800000

@@ -4,7 +4,7 @@
 
 ## Current Status
 
-### Completed Tasks (Tasks 1-12)
+### Completed Tasks (Tasks 1-14)
 - ✅ Task 1: Parent POM - COMPLETED (commit: 204499c)
 - ✅ Task 2: Common Module - Core Classes - COMPLETED (commit: 8d4acd7)
 - ✅ Task 3: Common Module - Response Classes - COMPLETED (commit: 76c9cb3)
@@ -14,26 +14,22 @@
 - ✅ Task 7: User Service Database Schema - COMPLETED (commit: c5006a3)
 - ✅ Task 8-9: User Service POM and Core Models - COMPLETED (commit: a5450c3)
 - ✅ Task 10: User Service MyBatis Mappers - COMPLETED (commit: b24b32a)
-- ✅ Task 11: Auth Service - COMPLETED (compile passed, commit pending)
-- ✅ Task 12: Address Service - COMPLETED (compile passed, commit pending)
+- ✅ Task 11: Auth Service - COMPLETED (commit: 06a318e)
+- ✅ Task 12: Address Service - COMPLETED (commit: 06a318e)
+- ✅ Task 13: User Service Controllers - COMPLETED (compile passed, commit pending)
+- ✅ Task 14: User Service Application Config - COMPLETED (compile passed, commit pending)
 
 ### In Progress
-- ⏳ Task 13: User Service Controllers - IN PROGRESS
-  - AuthController.java - need to create
-  - AddressController.java - need to create
+- ⏳ Task 15: Gateway Service - IN PROGRESS
+  - Gateway POM - need to create/update
+  - GatewayApplication.java - need to create
+  - AuthFilter.java - need to create
 
-### Pending Tasks (Tasks 10-20)
-- Task 10: User Service MyBatis Mappers
-- Task 11: Auth Service
-- Task 12: Address Service
-- Task 13: User Service Controllers
-- Task 14: User Service Application Configuration
-- Task 15: Gateway Service
-- Task 16: Update Parent POM with Gateway Module (already done in parent POM)
-- Task 17: Gateway Configuration
-- Task 18: Docker Profile Configurations
-- Task 19: Docker Files and Compose
-- Task 20: Phase 1 Documentation
+### Pending Tasks (Tasks 16-20)
+- Task 16: Gateway Configuration
+- Task 17: Docker Profile Configurations
+- Task 18: Docker Files and Compose
+- Task 19: Phase 1 Documentation
 
 ## Project Structure
 
@@ -58,37 +54,44 @@ cc-trading-platform/
 ├── docs/
 │   └── database/
 │       └── ccuser_schema.sql        # ✅ NEW (commit: c5006a3)
-└── cc-user-service/                 # ✅ Tasks 8-12 完成
+└── cc-user-service/                 # ✅ Tasks 8-14 完成
     ├── pom.xml                      # ✅ UPDATED
     └── src/main/
         ├── java/com/cc/user/
+        │   ├── UserServiceApplication.java  # ✅ NEW
         │   ├── model/
         │   │   ├── User.java        # ✅ NEW
         │   │   └── Address.java     # ✅ NEW
         │   ├── mapper/
         │   │   ├── UserMapper.java  # ✅ NEW
         │   │   └── AddressMapper.java # ✅ NEW
-        │   └── service/
-        │       ├── AuthService.java     # ✅ NEW
-        │       ├── AuthServiceImpl.java # ✅ NEW
-        │       ├── AddressService.java  # ✅ NEW
-        │       └── AddressServiceImpl.java # ✅ NEW
-        └── resources/mapper/
-            ├── UserMapper.xml       # ✅ NEW
-            └── AddressMapper.xml    # ✅ NEW
+        │   ├── service/
+        │   │   ├── AuthService.java     # ✅ NEW
+        │   │   ├── AuthServiceImpl.java # ✅ NEW
+        │   │   ├── AddressService.java  # ✅ NEW
+        │   │   └── AddressServiceImpl.java # ✅ NEW
+        │   └── controller/
+        │       ├── AuthController.java   # ✅ NEW
+        │       └── AddressController.java # ✅ NEW
+        └── resources/
+            ├── application.yml        # ✅ NEW
+            └── mapper/
+                ├── UserMapper.xml       # ✅ NEW
+                └── AddressMapper.xml    # ✅ NEW
 ```
 
 ## Next Steps to Continue
 
-1. **Submit Tasks 11-12**:
+1. **Submit Tasks 13-14**:
    ```bash
-   git add cc-user-service/src/main/java/com/cc/user/service/ cc-user-service/src/main/resources/mapper/ PROGRESS.md
-   git commit -m "feat: add auth and address services"
+   git add cc-user-service/src/main/java/com/cc/user/controller/ cc-user-service/src/main/java/com/cc/user/UserServiceApplication.java cc-user-service/src/main/resources/application.yml PROGRESS.md
+   git commit -m "feat: add user service controllers and application config"
    ```
 
-2. **Then continue with Task 13**: Controllers
-   - Create: cc-user-service/src/main/java/com/cc/user/controller/AuthController.java
-   - Create: cc-user-service/src/main/java/com/cc/user/controller/AddressController.java
+2. **Then continue with Task 15**: Gateway Service
+   - Create/Update: cc-gateway/pom.xml
+   - Create: cc-gateway/src/main/java/com/cc/gateway/GatewayApplication.java
+   - Create: cc-gateway/src/main/java/com/cc/gateway/filter/AuthFilter.java
 
 ## Reference Files
 
@@ -116,15 +119,14 @@ cc-trading-platform/
 | 5 | AES Encryption Utility | ✅ Done | - |
 | 6 | JWT Utility | ✅ Done | ec4b468 |
 | 7 | Database Schema | ✅ Done | c5006a3 |
-| 8-9 | User Service POM & Models | 🚧 In Progress | - |
-| 10 | MyBatis Mappers | ⏳ Pending | - |
-| 11 | Auth Service | ⏳ Pending | - |
-| 12 | Address Service | ⏳ Pending | - |
-| 13 | Controllers | ⏳ Pending | - |
-| 14 | Application Config | ⏳ Pending | - |
-| 15 | Gateway Service | ⏳ Pending | - |
-| 16 | Parent POM Update | ⏳ Pending | - |
-| 17 | Gateway Config | ⏳ Pending | - |
-| 18 | Docker Profiles | ⏳ Pending | - |
-| 19 | Docker Files | ⏳ Pending | - |
-| 20 | Documentation | ⏳ Pending | - |
+| 8-9 | User Service POM & Models | ✅ Done | a5450c3 |
+| 10 | MyBatis Mappers | ✅ Done | b24b32a |
+| 11 | Auth Service | ✅ Done | 06a318e |
+| 12 | Address Service | ✅ Done | 06a318e |
+| 13 | Controllers | ✅ Done | pending |
+| 14 | Application Config | ✅ Done | pending |
+| 15 | Gateway Service | ⏳ In Progress | - |
+| 16 | Gateway Config | ⏳ Pending | - |
+| 17 | Docker Profiles | ⏳ Pending | - |
+| 18 | Docker Files | ⏳ Pending | - |
+| 19 | Documentation | ⏳ Pending | - |
