@@ -4,7 +4,7 @@
 
 ## Current Status
 
-### Completed Tasks (Tasks 1-9)
+### Completed Tasks (Tasks 1-10)
 - ✅ Task 1: Parent POM - COMPLETED (commit: 204499c)
 - ✅ Task 2: Common Module - Core Classes - COMPLETED (commit: 8d4acd7)
 - ✅ Task 3: Common Module - Response Classes - COMPLETED (commit: 76c9cb3)
@@ -12,14 +12,13 @@
 - ✅ Task 5: AES Encryption Utility - COMPLETED (already exists)
 - ✅ Task 6: JWT Utility - COMPLETED (commit: ec4b468)
 - ✅ Task 7: User Service Database Schema - COMPLETED (commit: c5006a3)
-- ✅ Task 8-9: User Service POM and Core Models - COMPLETED (commit: pending)
+- ✅ Task 8-9: User Service POM and Core Models - COMPLETED (commit: a5450c3)
+- ✅ Task 10: User Service MyBatis Mappers - COMPLETED (commit: pending)
 
 ### In Progress
-- ⏳ Task 10: User Service MyBatis Mappers - IN PROGRESS
-  - UserMapper.java - need to create
-  - UserMapper.xml - need to create
-  - AddressMapper.java - need to create
-  - AddressMapper.xml - need to create
+- ⏳ Task 11: Auth Service - IN PROGRESS
+  - AuthService.java - need to create
+  - AuthServiceImpl.java - need to create
 
 ### Pending Tasks (Tasks 10-20)
 - Task 10: User Service MyBatis Mappers
@@ -57,27 +56,32 @@ cc-trading-platform/
 ├── docs/
 │   └── database/
 │       └── ccuser_schema.sql        # ✅ NEW (commit: c5006a3)
-└── cc-user-service/                 # 🚧 IN PROGRESS
+└── cc-user-service/                 # ✅ Task 8-10 完成
     ├── pom.xml                      # ✅ UPDATED
-    └── src/main/java/com/cc/user/
-        └── model/
-            ├── User.java            # ✅ NEW
-            └── Address.java         # ✅ NEW
+    └── src/main/
+        ├── java/com/cc/user/
+        │   ├── model/
+        │   │   ├── User.java        # ✅ NEW
+        │   │   └── Address.java     # ✅ NEW
+        │   └── mapper/
+        │       ├── UserMapper.java  # ✅ NEW
+        │       └── AddressMapper.java # ✅ NEW
+        └── resources/mapper/
+            ├── UserMapper.xml       # ✅ NEW
+            └── AddressMapper.xml    # ✅ NEW
 ```
 
 ## Next Steps to Continue
 
-1. **Submit Task 8-9**:
+1. **Submit Task 10**:
    ```bash
-   git add cc-user-service/ PROGRESS.md
-   git commit -m "feat: add user service POM and models"
+   git add cc-user-service/src/main/java/com/cc/user/mapper/ cc-user-service/src/main/resources/mapper/ PROGRESS.md
+   git commit -m "feat: add user service mappers"
    ```
 
-2. **Then continue with Task 10**: MyBatis Mappers
-   - Create: cc-user-service/src/main/java/com/cc/user/mapper/UserMapper.java
-   - Create: cc-user-service/src/main/resources/mapper/UserMapper.xml
-   - Create: cc-user-service/src/main/java/com/cc/user/mapper/AddressMapper.java
-   - Create: cc-user-service/src/main/resources/mapper/AddressMapper.xml
+2. **Then continue with Task 11**: Auth Service
+   - Create: cc-user-service/src/main/java/com/cc/user/service/AuthService.java
+   - Create: cc-user-service/src/main/java/com/cc/user/service/AuthServiceImpl.java
 
 ## Reference Files
 
