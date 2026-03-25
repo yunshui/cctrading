@@ -1,0 +1,61 @@
+version: '3.8'
+
+services:
+  nacos:
+    image: nacos/nacos-server:v2.2.0
+    ports:
+      - "8848:8848"
+    environment:
+      - MODE=standalone
+    volumes:
+      - ./nacos/logs:/home/nacos/logs
+
+  mysql:
+    image: mysql:8.0
+    ports:
+      - "3306:3306"
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=ccuser
+    volumes:
+      - ./mysql/data:/var/lib/mysql
+      - ./mysql/init:/docker-entrypoint-initdb.d
+    command: --default-authentication-plugin=mysql_native_password
+
+  redis:
+    image: redis:7-alpine
+    ports:
+      - "6379:6379"
+    volumes:
+      - ./redis/data:/data
+    command: redis-server --appendonly yes
+
+  gateway:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile.gateway
+    ports:
+      - "8080:8080"
+    depends_on:
+      - nacos
+      - redis
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
+
+  user-service:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile.user
+    ports:
+      - "8081:8081"
+    depends_on:
+      - nacos
+      - mysql
+      - redis
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
+
+volumes:
+  mysql_data:
+  redis_data:
+  nacos_logs:
