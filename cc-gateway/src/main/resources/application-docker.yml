@@ -12,3 +12,15 @@ jwt:
 logging:
   level:
     com.cc.gateway: info
+
+spring:
+  cloud:
+    gateway:
+      routes:
+        # 产品服务路由
+        - id: cc-product-service
+          uri: lb://cc-product-service
+          predicates:
+            - Path=/api/v1/products/**, /api/v1/categories/**
+          filters:
+            - StripPrefix=0

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cc.product.mapper.ProductSkuMapper">
+
+    <resultMap id="ProductSkuResultMap" type="com.cc.product.model.ProductSku">
+        <id column="id" property="id"/>
+        <result column="product_id" property="productId"/>
+        <result column="sku_code" property="skuCode"/>
+        <result column="name" property="name"/>
+        <result column="price" property="price"/>
+        <result column="stock" property="stock"/>
+        <result column="attributes" property="attributes"/>
+        <result column="status" property="status"/>
+        <result column="created_at" property="createdAt"/>
+        <result column="updated_at" property="updatedAt"/>
+    </resultMap>
+
+    <select id="findById" resultMap="ProductSkuResultMap">
+        SELECT * FROM product_skus WHERE id = #{id}
+    </select>
+
+    <select id="findBySkuCode" resultMap="ProductSkuResultMap">
+        SELECT * FROM product_skus WHERE sku_code = #{skuCode}
+    </select>
+
+    <select id="findByProductId" resultMap="ProductSkuResultMap">
+        SELECT * FROM product_skus WHERE product_id = #{productId} AND status = 1 ORDER BY id
+    </select>
+
+    <insert id="insert" parameterType="com.cc.product.model.ProductSku" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO product_skus (product_id, sku_code, name, price, stock, attributes, status)
+        VALUES (#{productId}, #{skuCode}, #{name}, #{price}, #{stock}, #{attributes}, #{status})
+    </insert>
+
+    <update id="update" parameterType="com.cc.product.model.ProductSku">
+        UPDATE product_skus
+        <set>
+            <if test="name != null">name = #{name},</if>
+            <if test="price != null">price = #{price},</if>
+            <if test="stock != null">stock = #{stock},</if>
+            <if test="attributes != null">attributes = #{attributes},</if>
+            <if test="status != null">status = #{status},</if>
+        </set>
+        WHERE id = #{id}
+    </update>
+
+    <update id="updateStock">
+        UPDATE product_skus SET stock = #{stock} WHERE id = #{id}
+    </update>
+
+    <delete id="delete">
+        DELETE FROM product_skus WHERE id = #{id}
+    </delete>
+
+    <delete id="deleteByProductId">
+        DELETE FROM product_skus WHERE product_id = #{productId}
+    </delete>
+
+</mapper>

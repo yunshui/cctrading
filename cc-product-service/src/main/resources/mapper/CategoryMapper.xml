@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cc.product.mapper.CategoryMapper">
+
+    <resultMap id="CategoryResultMap" type="com.cc.product.model.Category">
+        <id column="id" property="id"/>
+        <result column="name" property="name"/>
+        <result column="parent_id" property="parentId"/>
+        <result column="level" property="level"/>
+        <result column="path" property="path"/>
+        <result column="icon" property="icon"/>
+        <result column="sort_order" property="sortOrder"/>
+        <result column="status" property="status"/>
+        <result column="created_at" property="createdAt"/>
+        <result column="updated_at" property="updatedAt"/>
+    </resultMap>
+
+    <select id="findById" resultMap="CategoryResultMap">
+        SELECT * FROM categories WHERE id = #{id}
+    </select>
+
+    <select id="findAll" resultMap="CategoryResultMap">
+        SELECT * FROM categories WHERE status = 1 ORDER BY path ASC, sort_order ASC
+    </select>
+
+    <select id="findTopLevel" resultMap="CategoryResultMap">
+        SELECT * FROM categories WHERE parent_id = 0 AND status = 1 ORDER BY sort_order ASC
+    </select>
+
+    <select id="findByParentId" resultMap="CategoryResultMap">
+        SELECT * FROM categories WHERE parent_id = #{parentId} AND status = 1 ORDER BY sort_order ASC
+    </select>
+
+    <select id="findTree" resultMap="CategoryResultMap">
+        SELECT * FROM categories WHERE status = 1 ORDER BY path ASC, sort_order ASC
+    </select>
+
+    <insert id="insert" parameterType="com.cc.product.model.Category" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO categories (name, parent_id, level, path, icon, sort_order, status)
+        VALUES (#{name}, #{parentId}, #{level}, #{path}, #{icon}, #{sortOrder}, #{status})
+    </insert>
+
+    <update id="update" parameterType="com.cc.product.model.Category">
+        UPDATE categories
+        <set>
+            <if test="name != null">name = #{name},</if>
+            <if test="parentId != null">parent_id = #{parentId},</if>
+            <if test="level != null">level = #{level},</if>
+            <if test="path != null">path = #{path},</if>
+            <if test="icon != null">icon = #{icon},</if>
+            <if test="sortOrder != null">sort_order = #{sortOrder},</if>
+            <if test="status != null">status = #{status},</if>
+        </set>
+        WHERE id = #{id}
+    </update>
+
+    <delete id="delete">
+        DELETE FROM categories WHERE id = #{id}
+    </delete>
+
+    <select id="countChildren" resultType="int">
+        SELECT COUNT(*) FROM categories WHERE parent_id = #{parentId} AND status = 1
+    </select>
+
+</mapper>

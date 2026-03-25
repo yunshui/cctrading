@@ -1,0 +1,28 @@
+spring:
+  application:
+    name: cc-product-service
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+      config:
+        server-addr: localhost:8848
+        file-extension: yml
+  datasource:
+    url: jdbc:mysql://localhost:3306/ccproduct?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=Asia/Shanghai
+    username: root
+    password: root
+  redis:
+    host: localhost
+    port: 6379
+
+server:
+  port: 8082
+
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: com.cc.product.model
+
+logging:
+  level:
+    com.cc.product: debug

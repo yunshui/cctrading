@@ -38,7 +38,9 @@ public class AuthFilter implements GlobalFilter, Ordered {
     private ObjectMapper objectMapper;
 
     private static final List<String> WHITELIST = Arrays.asList(
-            "/api/v1/auth/login"
+            "/api/v1/auth/login",
+            "/api/v1/products",
+            "/api/v1/categories"
     );
 
     @Override

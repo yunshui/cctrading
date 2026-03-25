@@ -1,0 +1,15 @@
+/Users/yunshuiyang/Workspace/claude/cc-trading-platform/cc-product-service/src/main/java/com/cc/product/ProductServiceApplication.java
+/Users/yunshuiyang/Workspace/claude/cc-trading-platform/cc-product-service/src/main/java/com/cc/product/controller/CategoryController.java
+/Users/yunshuiyang/Workspace/claude/cc-trading-platform/cc-product-service/src/main/java/com/cc/product/controller/ProductController.java
+/Users/yunshuiyang/Workspace/claude/cc-trading-platform/cc-product-service/src/main/java/com/cc/product/mapper/CategoryMapper.java
+/Users/yunshuiyang/Workspace/claude/cc-trading-platform/cc-product-service/src/main/java/com/cc/product/mapper/ProductImageMapper.java
+/Users/yunshuiyang/Workspace/claude/cc-trading-platform/cc-product-service/src/main/java/com/cc/product/mapper/ProductMapper.java
+/Users/yunshuiyang/Workspace/claude/cc-trading-platform/cc-product-service/src/main/java/com/cc/product/mapper/ProductSkuMapper.java
+/Users/yunshuiyang/Workspace/claude/cc-trading-platform/cc-product-service/src/main/java/com/cc/product/model/Category.java
+/Users/yunshuiyang/Workspace/claude/cc-trading-platform/cc-product-service/src/main/java/com/cc/product/model/Product.java
+/Users/yunshuiyang/Workspace/claude/cc-trading-platform/cc-product-service/src/main/java/com/cc/product/model/ProductImage.java
+/Users/yunshuiyang/Workspace/claude/cc-trading-platform/cc-product-service/src/main/java/com/cc/product/model/ProductSku.java
+/Users/yunshuiyang/Workspace/claude/cc-trading-platform/cc-product-service/src/main/java/com/cc/product/service/CategoryService.java
+/Users/yunshuiyang/Workspace/claude/cc-trading-platform/cc-product-service/src/main/java/com/cc/product/service/CategoryServiceImpl.java
+/Users/yunshuiyang/Workspace/claude/cc-trading-platform/cc-product-service/src/main/java/com/cc/product/service/ProductService.java
+/Users/yunshuiyang/Workspace/claude/cc-trading-platform/cc-product-service/src/main/java/com/cc/product/service/ProductServiceImpl.java
