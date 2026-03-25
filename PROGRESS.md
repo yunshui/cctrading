@@ -4,7 +4,7 @@
 
 ## Current Status
 
-### Completed Tasks (Tasks 1-10)
+### Completed Tasks (Tasks 1-12)
 - ✅ Task 1: Parent POM - COMPLETED (commit: 204499c)
 - ✅ Task 2: Common Module - Core Classes - COMPLETED (commit: 8d4acd7)
 - ✅ Task 3: Common Module - Response Classes - COMPLETED (commit: 76c9cb3)
@@ -13,12 +13,14 @@
 - ✅ Task 6: JWT Utility - COMPLETED (commit: ec4b468)
 - ✅ Task 7: User Service Database Schema - COMPLETED (commit: c5006a3)
 - ✅ Task 8-9: User Service POM and Core Models - COMPLETED (commit: a5450c3)
-- ✅ Task 10: User Service MyBatis Mappers - COMPLETED (commit: pending)
+- ✅ Task 10: User Service MyBatis Mappers - COMPLETED (commit: b24b32a)
+- ✅ Task 11: Auth Service - COMPLETED (compile passed, commit pending)
+- ✅ Task 12: Address Service - COMPLETED (compile passed, commit pending)
 
 ### In Progress
-- ⏳ Task 11: Auth Service - IN PROGRESS
-  - AuthService.java - need to create
-  - AuthServiceImpl.java - need to create
+- ⏳ Task 13: User Service Controllers - IN PROGRESS
+  - AuthController.java - need to create
+  - AddressController.java - need to create
 
 ### Pending Tasks (Tasks 10-20)
 - Task 10: User Service MyBatis Mappers
@@ -56,16 +58,21 @@ cc-trading-platform/
 ├── docs/
 │   └── database/
 │       └── ccuser_schema.sql        # ✅ NEW (commit: c5006a3)
-└── cc-user-service/                 # ✅ Task 8-10 完成
+└── cc-user-service/                 # ✅ Tasks 8-12 完成
     ├── pom.xml                      # ✅ UPDATED
     └── src/main/
         ├── java/com/cc/user/
         │   ├── model/
         │   │   ├── User.java        # ✅ NEW
         │   │   └── Address.java     # ✅ NEW
-        │   └── mapper/
-        │       ├── UserMapper.java  # ✅ NEW
-        │       └── AddressMapper.java # ✅ NEW
+        │   ├── mapper/
+        │   │   ├── UserMapper.java  # ✅ NEW
+        │   │   └── AddressMapper.java # ✅ NEW
+        │   └── service/
+        │       ├── AuthService.java     # ✅ NEW
+        │       ├── AuthServiceImpl.java # ✅ NEW
+        │       ├── AddressService.java  # ✅ NEW
+        │       └── AddressServiceImpl.java # ✅ NEW
         └── resources/mapper/
             ├── UserMapper.xml       # ✅ NEW
             └── AddressMapper.xml    # ✅ NEW
@@ -73,15 +80,15 @@ cc-trading-platform/
 
 ## Next Steps to Continue
 
-1. **Submit Task 10**:
+1. **Submit Tasks 11-12**:
    ```bash
-   git add cc-user-service/src/main/java/com/cc/user/mapper/ cc-user-service/src/main/resources/mapper/ PROGRESS.md
-   git commit -m "feat: add user service mappers"
+   git add cc-user-service/src/main/java/com/cc/user/service/ cc-user-service/src/main/resources/mapper/ PROGRESS.md
+   git commit -m "feat: add auth and address services"
    ```
 
-2. **Then continue with Task 11**: Auth Service
-   - Create: cc-user-service/src/main/java/com/cc/user/service/AuthService.java
-   - Create: cc-user-service/src/main/java/com/cc/user/service/AuthServiceImpl.java
+2. **Then continue with Task 13**: Controllers
+   - Create: cc-user-service/src/main/java/com/cc/user/controller/AuthController.java
+   - Create: cc-user-service/src/main/java/com/cc/user/controller/AddressController.java
 
 ## Reference Files
 
