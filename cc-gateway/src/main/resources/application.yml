@@ -1,0 +1,23 @@
+spring:
+  application:
+    name: cc-gateway
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+    gateway:
+      routes:
+        # 用户服务路由
+        - id: cc-user-service
+          uri: lb://cc-user-service
+          predicates:
+            - Path=/api/v1/auth/**, /api/v1/addresses/**
+          filters:
+            - StripPrefix=0
+
+server:
+  port: 8080
+
+logging:
+  level:
+    com.cc.gateway: debug
