@@ -42,4 +42,11 @@ public class Result<T> {
     public static <T> Result<T> error(String message) {
         return error(com.cc.common.constant.ErrorCode.INTERNAL_ERROR, message);
     }
+
+    /**
+     * 判断是否成功
+     */
+    public boolean isSuccess() {
+        return this.code == com.cc.common.constant.ErrorCode.SUCCESS;
+    }
 }

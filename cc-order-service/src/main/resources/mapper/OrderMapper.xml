@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cc.order.mapper.OrderMapper">
+
+    <resultMap id="OrderResultMap" type="com.cc.order.model.Order">
+        <id column="id" property="id"/>
+        <result column="user_id" property="userId"/>
+        <result column="order_no" property="orderNo"/>
+        <result column="total_amount" property="totalAmount"/>
+        <result column="discount_amount" property="discountAmount"/>
+        <result column="actual_amount" property="actualAmount"/>
+        <result column="status" property="status"/>
+        <result column="receiver_name" property="receiverName"/>
+        <result column="receiver_phone" property="receiverPhone"/>
+        <result column="receiver_address" property="receiverAddress"/>
+        <result column="payment_status" property="paymentStatus"/>
+        <result column="payment_time" property="paymentTime"/>
+        <result column="shipping_time" property="shippingTime"/>
+        <result column="remark" property="remark"/>
+        <result column="created_at" property="createdAt"/>
+        <result column="updated_at" property="updatedAt"/>
+    </resultMap>
+
+    <select id="findById" resultMap="OrderResultMap">
+        SELECT * FROM orders WHERE id = #{id}
+    </select>
+
+    <select id="findByOrderNo" resultMap="OrderResultMap">
+        SELECT * FROM orders WHERE order_no = #{orderNo}
+    </select>
+
+    <select id="findByUserId" resultMap="OrderResultMap">
+        SELECT * FROM orders WHERE user_id = #{userId}
+        ORDER BY created_at DESC LIMIT #{offset}, #{limit}
+    </select>
+
+    <select id="countByUserId" resultType="int">
+        SELECT COUNT(*) FROM orders WHERE user_id = #{userId}
+    </select>
+
+    <insert id="insert" parameterType="com.cc.order.model.Order" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO orders (user_id, order_no, total_amount, discount_amount, actual_amount, status,
+                         receiver_name, receiver_phone, receiver_address, payment_status, remark)
+        VALUES (#{userId}, #{orderNo}, #{totalAmount}, #{discountAmount}, #{actualAmount}, #{status},
+                #{receiverName}, #{receiverPhone}, #{receiverAddress}, #{paymentStatus}, #{remark})
+    </insert>
+
+    <update id="update" parameterType="com.cc.order.model.Order">
+        UPDATE orders
+        <set>
+            <if test="status != null">status = #{status},</if>
+            <if test="paymentStatus != null">payment_status = #{paymentStatus},</if>
+            <if test="shippingTime != null">shipping_time = #{shippingTime},</if>
+            <if test="remark != null">remark = #{remark},</if>
+        </set>
+        WHERE id = #{id}
+    </update>
+
+    <update id="updateStatus">
+        UPDATE orders SET status = #{status} WHERE id = #{id}
+    </update>
+
+    <update id="updatePaymentStatus">
+        UPDATE orders SET payment_status = #{paymentStatus} WHERE id = #{id}
+    </update>
+
+    <update id="updatePaymentTime">
+        UPDATE orders SET payment_time = #{paymentTime} WHERE id = #{id}
+    </update>
+
+</mapper>

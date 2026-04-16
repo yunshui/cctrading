@@ -21,6 +21,13 @@ spring:
             - Path=/api/v1/products/**, /api/v1/categories/**
           filters:
             - StripPrefix=0
+        # 订单服务路由
+        - id: cc-order-service
+          uri: lb://cc-order-service
+          predicates:
+            - Path=/api/v1/orders/**
+          filters:
+            - StripPrefix=0
 
 server:
   port: 8080

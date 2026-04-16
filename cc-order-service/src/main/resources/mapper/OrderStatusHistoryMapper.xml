@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cc.order.mapper.OrderStatusHistoryMapper">
+
+    <resultMap id="OrderStatusHistoryResultMap" type="com.cc.order.model.OrderStatusHistory">
+        <id column="id" property="id"/>
+        <result column="order_id" property="orderId"/>
+        <result column="status" property="status"/>
+        <result column="remark" property="remark"/>
+        <result column="created_at" property="createdAt"/>
+    </resultMap>
+
+    <select id="findById" resultMap="OrderStatusHistoryResultMap">
+        SELECT * FROM order_status_history WHERE id = #{id}
+    </select>
+
+    <select id="findByOrderId" resultMap="OrderStatusHistoryResultMap">
+        SELECT * FROM order_status_history WHERE order_id = #{orderId} ORDER BY created_at
+    </select>
+
+    <insert id="insert" parameterType="com.cc.order.model.OrderStatusHistory" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO order_status_history (order_id, status, remark)
+        VALUES (#{orderId}, #{status}, #{remark})
+    </insert>
+
+</mapper>

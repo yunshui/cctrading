@@ -67,6 +67,19 @@ services:
     environment:
       - SPRING_PROFILES_ACTIVE=docker
 
+  order-service:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile.order
+    ports:
+      - "8083:8083"
+    depends_on:
+      - nacos
+      - mysql
+      - redis
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
+
 volumes:
   mysql_data:
   redis_data:

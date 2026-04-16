@@ -42,7 +42,12 @@ public interface AddressMapper {
     int delete(@Param("id") Long id, @Param("userId") Long userId);
 
     /**
-     * 设置默认地址
+     * 取消用户所有默认地址
      */
-    int setDefault(@Param("id") Long id, @Param("userId") Long userId);
+    int setDefault(@Param("userId") Long userId);
+
+    /**
+     * 设置指定地址为默认
+     */
+    int updateDefault(@Param("id") Long id, @Param("userId") Long userId);
 }

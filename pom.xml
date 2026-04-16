@@ -18,6 +18,7 @@
         <module>cc-gateway</module>
         <module>cc-user-service</module>
         <module>cc-product-service</module>
+        <module>cc-order-service</module>
     </modules>
 
     <properties>
