@@ -17,7 +17,7 @@ import java.util.Map;
 @Component
 public class JwtUtil {
 
-    @Value("${jwt.secret:cc-trading-platform-secret-key-2024}")
+    @Value("${jwt.secret:cctrading-platform-secret-key-2024}")
     private String secret;
 
     @Value("${jwt.expiration:86400000}") // 24小时

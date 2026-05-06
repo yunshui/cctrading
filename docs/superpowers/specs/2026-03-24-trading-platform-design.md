@@ -594,7 +594,7 @@
 ### 7.1 整体目录结构
 
 ```
-cc-trading-platform/
+cctrading-platform/
 ├── cc-gateway/              # API网关服务
 │   ├── src/main/java/com/cc/gateway/
 │   └── pom.xml

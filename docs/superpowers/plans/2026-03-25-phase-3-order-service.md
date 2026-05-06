@@ -15,7 +15,7 @@
 This phase creates the order service:
 
 ```
-cc-trading-platform/
+cctrading-platform/
 ├── pom.xml                          # Update with cc-order-service module
 ├── cc-common/                       # Add OrderDTO, OrderItemDTO, PaymentDTO
 │   └── src/main/java/com/cc/common/dto/

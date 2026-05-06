@@ -6,11 +6,11 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.cc</groupId>
-    <artifactId>cc-trading-platform</artifactId>
+    <artifactId>cctrading-platform</artifactId>
     <version>1.0.0</version>
     <packaging>pom</packaging>
 
-    <name>cc-trading-platform</name>
+    <name>cctrading-platform</name>
     <description>Trading Platform Microservices</description>
 
     <modules>

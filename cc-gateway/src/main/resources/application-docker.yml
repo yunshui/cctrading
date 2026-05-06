@@ -5,7 +5,7 @@ spring:
         server-addr: nacos:8848
 
 jwt:
-  secret: ${JWT_SECRET:cc-trading-platform-secret-key-2024-docker}
+  secret: ${JWT_SECRET:cctrading-platform-secret-key-2024-docker}
   expiration: 86400000
   refresh-expiration: 604800000
 

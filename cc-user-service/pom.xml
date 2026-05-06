@@ -7,7 +7,7 @@
 
     <parent>
         <groupId>com.cc</groupId>
-        <artifactId>cc-trading-platform</artifactId>
+        <artifactId>cctrading-platform</artifactId>
         <version>1.0.0</version>
     </parent>
 

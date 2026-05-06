@@ -15,7 +15,7 @@
 This phase creates the foundational project structure:
 
 ```
-cc-trading-platform/
+cctrading-platform/
 ├── pom.xml                          # Parent POM with dependency management
 ├── cc-common/                       # Common shared module
 │   ├── pom.xml
@@ -86,11 +86,11 @@ cc-trading-platform/
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.cc</groupId>
-    <artifactId>cc-trading-platform</artifactId>
+    <artifactId>cctrading-platform</artifactId>
     <version>1.0.0</version>
     <packaging>pom</packaging>
 
-    <name>cc-trading-platform</name>
+    <name>cctrading-platform</name>
     <description>Trading Platform Microservices</description>
 
     <modules>
@@ -231,7 +231,7 @@ git commit -m "feat: add parent POM with dependency management"
 
     <parent>
         <groupId>com.cc</groupId>
-        <artifactId>cc-trading-platform</artifactId>
+        <artifactId>cctrading-platform</artifactId>
         <version>1.0.0</version>
     </parent>
 
@@ -722,7 +722,7 @@ import java.util.Map;
 @Component
 public class JwtUtil {
 
-    @Value("${jwt.secret:cc-trading-platform-secret-key-2024}")
+    @Value("${jwt.secret:cctrading-platform-secret-key-2024}")
     private String secret;
 
     @Value("${jwt.expiration:86400000}") // 24小时
@@ -963,7 +963,7 @@ git commit -m "feat: add user service database schema"
 
     <parent>
         <groupId>com.cc</groupId>
-        <artifactId>cc-trading-platform</artifactId>
+        <artifactId>cctrading-platform</artifactId>
         <version>1.0.0</version>
     </parent>
 
@@ -1910,7 +1910,7 @@ logging:
     com.cc.user: debug
 
 jwt:
-  secret: cc-trading-platform-secret-key-2024
+  secret: cctrading-platform-secret-key-2024
   expiration: 86400000
   refresh-expiration: 604800000
 ```
@@ -1948,7 +1948,7 @@ git commit -m "feat: add user service application configuration"
 
     <parent>
         <groupId>com.cc</groupId>
-        <artifactId>cc-trading-platform</artifactId>
+        <artifactId>cctrading-platform</artifactId>
         <version>1.0.0</version>
     </parent>
 
@@ -2260,7 +2260,7 @@ spring:
         server-addr: nacos:8848
 
 jwt:
-  secret: ${JWT_SECRET:cc-trading-platform-secret-key-2024-docker}
+  secret: ${JWT_SECRET:cctrading-platform-secret-key-2024-docker}
   expiration: 86400000
   refresh-expiration: 604800000
 
@@ -2286,7 +2286,7 @@ spring:
         server-addr: nacos:8848
 
 jwt:
-  secret: ${JWT_SECRET:cc-trading-platform-secret-key-2024-docker}
+  secret: ${JWT_SECRET:cctrading-platform-secret-key-2024-docker}
 
 logging:
   level:

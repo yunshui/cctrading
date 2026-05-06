@@ -15,7 +15,7 @@
 This phase creates the product service:
 
 ```
-cc-trading-platform/
+cctrading-platform/
 ├── pom.xml                          # Update with cc-product-service module
 ├── cc-common/                       # Add ProductDTO, CategoryDTO
 │   └── src/main/java/com/cc/common/dto/

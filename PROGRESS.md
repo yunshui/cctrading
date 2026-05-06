@@ -27,7 +27,7 @@
 ## Project Structure
 
 ```
-cc-trading-platform/
+cctrading-platform/
 ├── pom.xml                          # Parent POM with cc-gateway and cc-user-service
 ├── cc-common/                       # ✅ COMPLETED
 │   ├── pom.xml

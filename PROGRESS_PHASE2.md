@@ -21,7 +21,7 @@
 ## Project Structure
 
 ```
-cc-trading-platform/
+cctrading-platform/
 ├── pom.xml                          # ✅ UPDATED - added cc-product-service
 ├── cc-common/                       # ✅ UPDATED - added ProductDTOs
 │   └── src/main/java/com/cc/common/dto/

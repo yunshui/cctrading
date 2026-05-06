@@ -28,6 +28,6 @@ logging:
     com.cc.user: debug
 
 jwt:
-  secret: cc-trading-platform-secret-key-2024
+  secret: cctrading-platform-secret-key-2024
   expiration: 86400000
   refresh-expiration: 604800000
